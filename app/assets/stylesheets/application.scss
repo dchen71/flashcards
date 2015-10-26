@@ -19,8 +19,23 @@
 @import "font-awesome";
 
 /* Navbar */
+$navbar-active: blue;
+
 .navbar{
 	margin-bottom: 0px;
+	.container-fluid{
+		ul li a{
+			-o-transition: ease-out, background 0.5s ease-in;
+			-ms-transition: ease-out, background 0.5s ease-in;
+			-moz-transition: ease-out, background 0.5s ease-in;
+			-webkit-transition: ease-out, background 0.5s ease-in;
+			transition: ease-out, background 0.5s ease-in;
+			&:hover{
+				background-color: $navbar-active;
+			}
+		}
+
+	}
 }
 
 /* Row */
