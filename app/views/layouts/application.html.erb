@@ -8,6 +8,22 @@
 </head>
 <body>
 
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Flashcards</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li <% if root_path %> class="active" <% end %>><%= link_to 'Home', root_path %></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <%= yield %>
 
 </body>
