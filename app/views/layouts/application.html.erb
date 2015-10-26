@@ -31,10 +31,14 @@
         <li <% if current_page?(contact_path) %> class="active" <% end %>><%= link_to 'Contact', contact_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
         <li><a href='#'>Study</a></li>
         <li><a href='#'>Log out</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% end %>
+        <% unless signed_in?%>
+        <li><%= link_to new_user_registration_path do %><span class="glyphicon glyphicon-user"></span> Sign up<% end %></li>
+        <li><%= link_to new_user_session_path do %><span class="glyphicon glyphicon-log-in"></span> Login<% end %></li>
+        <% end %>
       </ul>
     </div>
   </div>
