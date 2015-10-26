@@ -1,0 +1,62 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+
+
+/* Navbar */
+$navbar-active: blue;
+
+.navbar{
+	margin-bottom: 0px;
+	.container-fluid{
+		ul li a{
+			-o-transition: ease-out, background 0.5s ease-in;
+			-ms-transition: ease-out, background 0.5s ease-in;
+			-moz-transition: ease-out, background 0.5s ease-in;
+			-webkit-transition: ease-out, background 0.5s ease-in;
+			transition: ease-out, background 0.5s ease-in;
+			&:hover{
+				background-color: $navbar-active;
+			}
+		}
+
+	}
+}
+
+/* Row */
+.row-content{
+	padding-bottom: 100px;
+}
+
+.row-header{
+	padding-bottom: 20px;
+}
+
+/* Footer */
+$footer-background: #E0DCD5;
+
+.footer{
+	background-color: $footer-background;
+	.container{
+		.list-unstyled{
+			margin-top: 20px;
+		}
+	}
+}
