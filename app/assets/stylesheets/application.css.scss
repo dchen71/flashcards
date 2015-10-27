@@ -18,7 +18,15 @@
 @import "bootstrap";
 @import "font-awesome";
 
+html {
+  position: relative;
+  min-height: 100%;
+}
 
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 30px;
+}
 
 /* Navbar */
 $navbar-active: blue;
@@ -54,6 +62,13 @@ $footer-background: #E0DCD5;
 
 .footer{
 	background-color: $footer-background;
+
+	/* Sticky settings */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	min-height: 30px;
+	
 	.container{
 		.list-unstyled{
 			margin-top: 20px;
