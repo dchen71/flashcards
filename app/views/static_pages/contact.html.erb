@@ -19,7 +19,7 @@
 	<div class="row row-content">
 		<div class="row">
 			<div class="col-md-12 col-xs-12 col-sm-12">
-				<div class="col-md-12 col-xs-12 col-sm-6">
+				<div class="col-md-6 col-xs-12 col-sm-6">
 					<h3>Our Address</h3>
 					<ul class="list-unstyled">
 						<li>FC</li>
@@ -31,8 +31,33 @@
 				</div>
 				<div class="col-md-6 col-xs-12 col-sm-6">
 					<h3>Map</h3>
+					<div id="googleMap" style="width:300px;height:300px;"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<!-- Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+var hq = new google.maps.LatLng(37.789180,-122.390029);
+	//Creates map and marker
+	function initialize() {
+	  var mapProp = {
+	    center:hq,
+	    zoom:17,
+	    mapTypeId:google.maps.MapTypeId.ROADMAP
+	  };
+	  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	  
+	  //Adds marker for location
+	  var marker=new google.maps.Marker({
+	    position:hq,
+	    });
+	  marker.setMap(map);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
