@@ -33,7 +33,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
         <li><a href='#'>Study</a></li>
-        <li><a href='#'>Log out</a></li>
+        <li><%= link_to "Log Out", destroy_user_session_path , method: 'delete'%></li>
         <% end %>
         <% unless signed_in?%>
         <li><%= link_to new_user_registration_path do %><span class="glyphicon glyphicon-user"></span> Sign up<% end %></li>
