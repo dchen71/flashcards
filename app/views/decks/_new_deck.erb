@@ -12,7 +12,7 @@
 		<%= form_for @deck do |f| %>
 			<div class="form-group">
 				<%= f.label :Name %><em>(Maximum 30 characters)</em></p>
-				<%= f.text_field :title, class:"form-control", placeholder: 'Title of the Deck' %>
+				<%= f.text_field :title, class:"form-control", placeholder: 'Title of the Deck', required: true %>
 			</div>
       </div>
       <div class="modal-footer">
