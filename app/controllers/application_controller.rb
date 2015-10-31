@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
   #Devise override to redirect after signing in
   def after_sign_in_path_for(resource)
-    users_path
+    decks_path
   end
 end

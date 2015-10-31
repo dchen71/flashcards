@@ -1,6 +1,11 @@
 class DecksController < ApplicationController
 	def new
-		@deck = Deck.new
+		@deck = current_user.decks.build
+	end
+
+	def index
+		@decks = current_user.decks
+		@deck = current_user.decks.build
 	end
 
 	def create

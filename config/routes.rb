@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
 
-  #Users > decks > cards
-  resources :users, only: [:index] do
+  #Decks > cards
+  resources :decks do
     member do
-      resources :decks
+
     end
-  end  
+  end
 
 end
