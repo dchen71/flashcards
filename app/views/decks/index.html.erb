@@ -14,7 +14,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<hr>
 				<!-- Insert loop to go over to list each deck here with edit tabs to right and view to main link -->
-				<% if @decks.length != 0 %>
+				<% if @decks.length != 1 %>
 					<% @decks.each do |f| %>
 						<p><%= f.title %></p>
 					<% end %>
@@ -26,12 +26,6 @@
 		</div>
 	</div>
 </div>
-
-<% if !@decks.nil? %>
-<p>NIL <%= current_user.decks.length%></p>
-<% end %>
-
-<%= debug @decks %>
 
 <!-- New Deck Modal -->
 <div id="newDeck" class="modal fade" role="dialog">

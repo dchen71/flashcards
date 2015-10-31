@@ -9,11 +9,13 @@ class DecksController < ApplicationController
 	end
 
 	def create
-		@deck = Deck.new(deck_params)
+		@deck = current_user.decks.build(deck_params)
 		if @deck.save
-			flash.now[:success] = 'Deck successfully created'
+			flash[:success] = 'Deck successfully created'
+			redirect_to decks_path
 		else
-			flash.now[:info] = "Error creating deck"
+			flash[:error] = "Error creating deck"
+			redirect_to decks_path
 		end
 
 	end
