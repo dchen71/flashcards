@@ -28,7 +28,7 @@
 </div>
 
 <% if !@decks.nil? %>
-<p>NIL <%= @decks.length%></p>
+<p>NIL <%= current_user.decks.length%></p>
 <% end %>
 
 <%= debug @decks %>
@@ -44,14 +44,17 @@
         <h4 class="modal-title">Create New Deck</h4>
       </div>
       <div class="modal-body">
-		<% form_for @deck do |f| %>
-			<p><%= f.label :title %></p>
-			<%= f.text_field :title %>
-		<% end %>
+		<%= form_for @deck do |f| %>
+			<div class="form-group">
+				<%= f.label :Name %></p>
+				<%= f.text_field :title, class:"form-control" %>
+			</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        <%= f.submit "Create", class: "btn btn-success pull-right" %>
       </div>
+		<% end %>
     </div>
 
   </div>
