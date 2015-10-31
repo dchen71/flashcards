@@ -9,12 +9,40 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<h2 class="pull-left">Decks</h2>
-				<%= link_to "Create New Deck", '#', class: 'pull-right btn-success btn', style: 'margin-top:20px;' %>
+				<%= link_to "Create New Deck", '#', class: 'pull-right btn-success btn', style: 'margin-top:20px;', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<hr>
 				<!-- Insert loop to go over to list each deck here with edit tabs to right and view to main link -->
+				<% if @decks.length != 0 %>
+					<% @decks.each do |f| %>
+						<p><%= f.title %></p>
+					<% end %>
+				<% else %>
+					<p>The birds are chirping, why don't you create some decks to get started!</p>
+				<% end %>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- New Deck Modal -->
+<div id="newDeck" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create New Deck</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
 </div>
