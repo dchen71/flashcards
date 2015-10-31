@@ -6,7 +6,7 @@
 	</div>
 
 	<div class="row row-content">
-		<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<h2 class="pull-left">Decks</h2>
 				<%= link_to "Create New Deck", '#', class: 'pull-right btn-success btn', style: 'margin-top:20px;', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
@@ -16,7 +16,9 @@
 				<!-- Insert loop to go over to list each deck here with edit tabs to right and view to main link -->
 				<% if @decks.length != 1 %>
 					<% @decks.each do |f| %>
-						<p><%= f.title %></p>
+						<% unless f.id.nil? %>
+						<%= link_to f.title, deck_path(f.id) %>
+						<% end %>
 					<% end %>
 					<p><here</p>
 				<% else %>
@@ -26,6 +28,8 @@
 		</div>
 	</div>
 </div>
+
+
 
 <!-- New Deck Modal -->
 <div id="newDeck" class="modal fade" role="dialog">
