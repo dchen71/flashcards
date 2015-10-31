@@ -1,4 +1,6 @@
 class DecksController < ApplicationController
+	before_action :require_login
+
 	def new
 		@deck = current_user.decks.build
 	end
@@ -24,5 +26,12 @@ class DecksController < ApplicationController
 
 	def deck_params
 		params.require(:deck).permit(:title)
+	end
+
+	def require_login
+		unless signed_in?
+			flash[:error] = "Please login to view content"
+			redirect_to root_path
+		end
 	end
 end
