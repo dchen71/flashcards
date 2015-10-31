@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row row-header">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<p style="padding-bottom:5%;"></p>
+		</div>
+	</div>
+
+	<div class="row row-content">
+		<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<h2 class="pull-left"><%= @deck.title %></h2>
+				<div class="btn-group pull-right" style="margin-top:20px;">
+					<button class="btn btn-info">Edit Deckname</button>
+					<%= link_to "Create New Card", '#', class: 'btn-success btn', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<hr>
+				
+			</div>
+			<footer>
+				<p>Back</p>
+			</footer>
+		</div>
+	</div>
+</div>
+
+
+<!-- New Deck Modal -->
+<div id="newDeck" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create New Deck</h4>
+      </div>
+      <div class="modal-body">
+		<%= form_for @deck do |f| %>
+			<div class="form-group">
+				<%= f.label :Front %></p>
+				<%= f.text_area :title, rows:5, class:"form-control", placeholder: 'Front of the card' %>
+			</div>
+			<div class="form-group">
+				<%= f.label :Back %></p>
+				<%= f.text_area :title, rows: 5,class:"form-control", placeholder: 'Back of the card' %>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        <%= f.submit "Create", class: "btn btn-success pull-right" %>
+      </div>
+		<% end %>
+    </div>
+
+  </div>
+</div>
