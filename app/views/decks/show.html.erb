@@ -10,8 +10,8 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<h2 class="pull-left"><%= @deck.title %></h2>
 				<div class="btn-group pull-right" style="margin-top:20px;">
-					<button class="btn btn-info">Edit Deckname</button>
-					<%= link_to "Create New Card", '#', class: 'btn-success btn', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
+					<%= link_to "Edit Deck", '#', class: 'btn-info btn', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
+					<%= link_to "Create New Card", '#', class: 'btn-success btn', type:"button", 'data-toggle' => "modal", 'data-target' => "#newCard" %>
 				</div>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
@@ -27,7 +27,7 @@
 
 
 <!-- New Card Modal -->
-<div id="newDeck" class="modal fade" role="dialog">
+<div id="newCard" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -56,3 +56,6 @@
 
   </div>
 </div>
+
+<% provide :modal_title, 'Edit title of deck' %>
+<%= render 'new_deck' %>
