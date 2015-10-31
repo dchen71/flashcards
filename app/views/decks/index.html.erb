@@ -15,12 +15,18 @@
 				<hr>
 				<!-- Insert loop to go over to list each deck here with edit tabs to right and view to main link -->
 				<% if @decks.length != 1 %>
-					<% @decks.each do |f| %>
-						<% unless f.id.nil? %>
-						<%= link_to f.title, deck_path(f.id) %>
+					<div class="col-md-12 col-sm-12 col-sm-12">
+						<p class="col-md-7 col-sm-12 col-xs-12"><strong>Name</strong></p>
+						<p class="col-md-2 col-sm-4 col-xs-4"><strong># Cards</strong></p>
+						<p class="col-md-3 col-sm-8 col-xs-8"><strong>Last viewed</strong></p>
+						<% @decks.each do |f| %>
+							<% unless f.id.nil? %>
+							<%= link_to f.title, deck_path(f.id), class:'col-md-7' %>
+							<p class="col-md-2">Cards</p>
+							<p class="col-md-3">Last viewed</p>
+							<% end %>
 						<% end %>
-					<% end %>
-					<p><here</p>
+					</div>
 				<% else %>
 					<p>The birds are chirping, why don't you create some decks to get started!</p>
 				<% end %>
