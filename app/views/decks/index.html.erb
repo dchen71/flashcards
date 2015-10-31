@@ -13,7 +13,6 @@
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<hr>
-				<!-- Insert loop to go over to list each deck here with edit tabs to right and view to main link -->
 				<% if @decks.length != 1 %>
 					<div class="col-md-12 col-sm-12 col-sm-12">
 						<p class="col-md-7 col-sm-12 col-xs-12"><strong>Name</strong></p>
@@ -50,7 +49,7 @@
       <div class="modal-body">
 		<%= form_for @deck do |f| %>
 			<div class="form-group">
-				<%= f.label :Name %></p>
+				<%= f.label :Name %><em>(Maximum 30 characters)</em></p>
 				<%= f.text_field :title, class:"form-control" %>
 			</div>
       </div>
