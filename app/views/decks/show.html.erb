@@ -13,11 +13,22 @@
 		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<h2 class="col-md-6 col-sm-12 col-xs-12"><%= truncate(@deck.title, length: 20) %></h2>
-				<div class="btn-group col-md-6 col-sm-12 col-xs-12" style="margin-top:20px;">
+				<div class="btn-group col-md-6 col-sm-12 col-xs-12 visible-lg visible-md" style="margin-top:20px;">
 					<%= link_to "Share Deck", '#', class: 'btn-warning btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#shareDeck" %>
 					<%= link_to "Delete Deck", '#', class: 'btn-danger btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %>
 					<%= link_to "Edit Deck", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
 					<%= link_to "Create New Card", '#', class: 'btn-success btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#cardModal" %>
+				</div>
+				<div class="dropdown visible-xs visible-sm col-sm-12 col-xs-12">
+				  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
+				  <span class="caret"></span></button>
+				  <ul class="dropdown-menu">
+				    <li><%= link_to "Share Deck", '#', type:"button", 'data-toggle' => "modal", 'data-target' => "#shareDeck" %></li>
+				    <li><%= link_to "Delete Deck", '#', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %></li>
+				    <li><%= link_to "Edit Deck", '#', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %></li>
+				    <li class="divider"></li>
+				    <li><%= link_to "Create New Card", '#', type:"button", 'data-toggle' => "modal", 'data-target' => "#cardModal" %></li>
+				  </ul>
 				</div>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102223920) do
+ActiveRecord::Schema.define(version: 20151102230805) do
 
   create_table "cards", force: :cascade do |t|
     t.text     "front"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20151102223920) do
 
   create_table "decks", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "user_id"
     t.datetime "last_visited"
+    t.boolean  "share",        default: false
   end
 
   add_index "decks", ["user_id"], name: "index_decks_on_user_id"
