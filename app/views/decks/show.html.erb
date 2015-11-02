@@ -16,14 +16,12 @@
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<hr>
-				<p>front-card</p>
-				<p>Btn broup edit/delete</p>
 				<% if @cards.length != 0 %>
 					<div class="col-md-12 col-sm-12 col-sm-12">
+						<p style="padding-top:5px;"></p>
 						<% @cards.each do |f| %>
 							<% unless f.id.nil? %>
 							<div class="deck-content col-md-12 col-xs-12 col-sm-12">
-							<p style="padding-top:5px;"></p>
 							<%= link_to f.front, card_path(f.id), class:'col-md-7 col-sm-2 col-xs-3' %>
 							<div class="btn-group">
 								<%= link_to "Edit Card", '#', class: "btn btn-info" %>
@@ -57,14 +55,14 @@
         <h4 class="modal-title">Create New Card</h4>
       </div>
       <div class="modal-body">
-		<%= form_for @deck do |f| %>
+		<%= form_for @card do |f| %>
 			<div class="form-group">
 				<%= f.label :Front %></p>
-				<%= f.text_area :title, rows:5, class:"form-control", placeholder: 'Front of the card', required:true %>
+				<%= f.text_area :front, rows:5, class:"form-control", placeholder: 'Front of the card', required:true %>
 			</div>
 			<div class="form-group">
 				<%= f.label :Back %></p>
-				<%= f.text_area :title, rows: 5,class:"form-control", placeholder: 'Back of the card', required:true %>
+				<%= f.text_area :back, rows: 5,class:"form-control", placeholder: 'Back of the card', required:true %>
 			</div>
       </div>
       <div class="modal-footer">
