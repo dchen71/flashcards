@@ -24,7 +24,7 @@
 							<% unless f.id.nil? %>
 							<div class="decks col-md-12 col-xs-12 col-sm-12">
 							<p style="padding-top:5px;"></p>
-							<%= link_to f.title, deck_path(f.id), class:'col-md-7 col-sm-2 col-xs-3' %>
+							<%= link_to truncate(f.title, length: 70), deck_path(f.id), class:'col-md-7 col-sm-2 col-xs-3' %>
 							<%= link_to f.cards.length, deck_path(f.id), class:"col-md-2 col-sm-2 col-xs-4" %>
 							<%= link_to f.last_visited.strftime("%m/%d/%Y, %I:%M %Z"), deck_path(f.id), class: 'col-md-3 col-sm-8 col-xs-5' %>
 							</div>
