@@ -93,6 +93,31 @@ textarea{
   			  and (orientation: landscape){
 	.return{
 		bottom:22%;
+		left:45%;
+	}
+}
+
+/* Arrows */
+.arrowright, .arrowleft{
+	position: absolute;
+	bottom: 50%;
+	font-size: 1.5em;
+}
+
+.arrowright{
+	right: 20%;
+}
+
+.arrowleft{
+	left: 20%;
+}
+
+@media screen and (max-width: 960px){
+	.arrowright{
+		right:2%;
+	}
+	.arrowleft{
+		left:2%;
 	}
 }
 

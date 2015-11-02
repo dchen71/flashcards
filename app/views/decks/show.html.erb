@@ -26,7 +26,6 @@
 							<div class="deck-content col-md-12 col-xs-12 col-sm-12">
 								<%= link_to truncate(f.front, length: 35), card_path(f.id), class:'pull-left' %>
 								<div class="btn-group pull-right hidden-sm hidden-xs">
-									<%= link_to "Edit Card", edit_card_path(f.id), class: "btn btn-info btn-sm" %>
 									<%= link_to "Delete Card", card_path(f.id), method: :delete, class: "btn btn-danger btn-sm" %>
 								</div>
 							</div>
