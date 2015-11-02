@@ -22,9 +22,18 @@
 				<div class="col-md-12 col-sm-12 col-sm-12">
 					<p style="padding-top:5px;"></p>
 					<div class="deck-content col-md-12 col-xs-12 col-sm-12">
-						<p><%= @card.front %></p>
-						<p><%= @card.back %></p>
-						
+						<div class="front">
+							<div class="well text-center">
+								<h3><%= @card.front %></h3>
+							</div>
+						</div>
+						<hr>
+						<div class="back">
+							<div class="well text-center">
+								<h3><%= @card.back %></h3>
+							</div>
+						</div>
+						<button class="btn btn-block btn-info">Show card</button>
 					</div>
 				</div>
 			</div>
