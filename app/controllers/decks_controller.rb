@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
 	before_action :require_login
+	before_action :last_visited, only: [:show]
 
 	def new
 		@deck = current_user.decks.build
@@ -32,10 +33,17 @@ class DecksController < ApplicationController
 		params.require(:deck).permit(:title)
 	end
 
+	#Requires login
 	def require_login
 		unless signed_in?
 			flash[:error] = "Please login to view content"
 			redirect_to root_path
 		end
 	end
+
+	#Updates the last visited
+	def last_visited
+	  Deck.find(params[:id]).update_attribute(:last_seen_at, DateTime.now)
+	end
 end
+
