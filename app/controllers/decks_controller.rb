@@ -7,7 +7,7 @@ class DecksController < ApplicationController
 	end
 
 	def index
-		@decks = current_user.decks
+		@decks = current_user.decks.order(last_seen_at: :desc)
 		@deck = current_user.decks.build
 	end
 
