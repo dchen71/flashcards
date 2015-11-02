@@ -17,7 +17,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-        <%= f.submit "Create", class: "btn btn-success pull-right" %>
+        <%= f.submit yield(:modal_submit), class: "btn btn-success pull-right" %>
       </div>
 		<% end %>
     </div>
