@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #Decks > cards
   resources :decks do
     member do
-
+      resources :cards
     end
   end
 
