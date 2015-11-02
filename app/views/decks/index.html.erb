@@ -26,8 +26,7 @@
 							<p style="padding-top:5px;"></p>
 							<%= link_to f.title, deck_path(f.id), class:'col-md-7 col-sm-2 col-xs-3' %>
 							<p class="col-md-2 col-sm-2 col-xs-4">Cards</p>
-							<% t = f.last_seen_at %>
-							<%= link_to f.last_seen_at.strftime("%m/%d/%Y, %I:%M %Z"), deck_path(f.id), class: 'col-md-3 col-sm-8 col-xs-5' %>
+							<%= link_to f.last_visited.strftime("%m/%d/%Y, %I:%M %Z"), deck_path(f.id), class: 'col-md-3 col-sm-8 col-xs-5' %>
 							</div>
 							<% end %>
 						<% end %>

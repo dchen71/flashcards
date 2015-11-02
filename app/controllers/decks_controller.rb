@@ -7,7 +7,7 @@ class DecksController < ApplicationController
 	end
 
 	def index
-		@decks = current_user.decks.order(last_seen_at: :desc)
+		@decks = current_user.decks.order(last_visited: :desc)
 		@deck = current_user.decks.build
 	end
 
@@ -43,7 +43,7 @@ class DecksController < ApplicationController
 
 	#Updates the last visited
 	def last_visited
-	  Deck.find(params[:id]).update_attribute(:last_seen_at, DateTime.now)
+	  Deck.find(params[:id]).update_attribute(:last_visited, DateTime.now)
 	end
 end
 
