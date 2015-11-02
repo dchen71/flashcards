@@ -29,11 +29,12 @@ class DecksController < ApplicationController
 	end
 
 	def edit
-
+		@deck = @deck.find(params[:id])
+		@deck.update(deck_params)
 	end
 
 	def destroy
-
+		@deck = @deck.find(params[:id])
 	end
 
 	private
