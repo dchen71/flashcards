@@ -75,6 +75,14 @@ textarea{
 	resize: none;
 }
 
+/* Return button */
+.return{
+	position: absolute;
+	bottom: 18%;
+	left: 46%;
+}
+
+
 /* Footer */
 $footer-background: #E0DCD5;
 
@@ -93,3 +101,4 @@ $footer-background: #E0DCD5;
 		}
 	}
 }
+
