@@ -8,8 +8,8 @@
 	<div class="row row-content">
 		<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
 			<div class="col-md-12 col-sm-12 col-xs-12">
-				<h2 class="pull-left"><%= @deck.title %></h2>
-				<div class="btn-group pull-right" style="margin-top:20px;">
+				<h2 class="col-md-6 col-sm-12 col-xs-12"><%= @deck.title %></h2>
+				<div class="btn-group col-md-6 col-sm-12 col-xs-12" style="margin-top:20px;">
 					<%= link_to "Edit Deck", '#', class: 'btn-info btn', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
 					<%= link_to "Create New Card", '#', class: 'btn-success btn', type:"button", 'data-toggle' => "modal", 'data-target' => "#newCard" %>
 				</div>
@@ -19,7 +19,7 @@
 				
 			</div>
 			<footer>
-				<p>Back</p>
+				<%= link_to "Back", decks_path %>
 			</footer>
 		</div>
 	</div>
