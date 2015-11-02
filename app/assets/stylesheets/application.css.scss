@@ -126,6 +126,11 @@ textarea{
 	cursor: default;
 }
 
+/* Card */
+.front-card, .back-card{
+	min-height: 200px;
+}
+
 /* Footer */
 $footer-background: #E0DCD5;
 
