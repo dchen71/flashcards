@@ -25,18 +25,18 @@
 				<div class="col-md-12 col-sm-12 col-sm-12">
 					<p style="padding-top:5px;"></p>
 					<div class="deck-content col-md-12 col-xs-12 col-sm-12">
-						<div class="front">
+						<div class="front-card">
 							<div class="well text-center">
-								<h3><%= @card.front %></h3>
+								<h3 class="front"><%= @card.front %></h3>
 							</div>
 						</div>
 						<hr>
-						<div class="back">
+						<div class="back-card">
 							<div class="well text-center">
-								<h3><%= @card.back %></h3>
+								<h3 class="back"><%= @card.back %></h3>
 							</div>
 						</div>
-						<button class="btn btn-block btn-info">Show card</button>
+						<button class="btn btn-block btn-info" id="show">Show card</button>
 					</div>
 				</div>
 			</div>
@@ -62,3 +62,16 @@
 <% provide :delete_id, "deleteCard" %>
 <% provide :delete_path, card_path(@card) %>
 <%= render 'shared/deletecontent' %>
+
+<script>
+$(document).ready(function(){
+    $(".back").hide();
+    $("#show").click(function(){
+        if(!$('#show').hasClass('disabled')){
+        $(".back").show();
+
+        $('#show').toggleClass('disabled');
+        }
+    });
+});
+</script>
