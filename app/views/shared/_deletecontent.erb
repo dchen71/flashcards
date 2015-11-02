@@ -1,0 +1,21 @@
+<!-- New Deck Modal -->
+<div id="<%= yield(:delete_id) %>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Confirm deletion</h4>
+      </div>
+      <div class="modal-body">
+        <p>This action cannot be undone after deletion. Click continue to delete.</p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'Confirm Deletion', yield(:delete_path), method: :delete, class: "btn btn-danger pull-right" %>
+        <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>

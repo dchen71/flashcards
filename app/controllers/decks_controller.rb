@@ -29,13 +29,17 @@ class DecksController < ApplicationController
 		@card = Deck.find(params[:id]).cards.build()
 	end
 
-	def edit
-		@deck = @deck.find(params[:id])
+	def update
+		@deck = Deck.find(params[:id])
 		@deck.update(deck_params)
+		redirect_to :back
 	end
 
 	def destroy
-		@deck = @deck.find(params[:id])
+		@deck = Deck.find(params[:id])
+		@deck.destroy
+		flash[:success] = "Deck successfully deleted"
+		redirect_to decks_path
 	end
 
 	private
