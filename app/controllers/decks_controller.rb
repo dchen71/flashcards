@@ -28,18 +28,18 @@ class DecksController < ApplicationController
 		@cards = @deck.cards
 	end
 
+	def edit
+
+	end
+
+	def destroy
+
+	end
+
 	private
 
 	def deck_params
 		params.require(:deck).permit(:title)
-	end
-
-	#Requires login
-	def require_login
-		unless signed_in?
-			flash[:error] = "Please login to view content"
-			redirect_to root_path
-		end
 	end
 
 	#Updates the last visited
