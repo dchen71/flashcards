@@ -6,10 +6,11 @@
 	</div>
 
 	<div class="row row-content">
-		<div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<h2 class="col-md-6 col-sm-12 col-xs-12"><%= truncate(@deck.title, length: 20) %></h2>
 				<div class="btn-group col-md-6 col-sm-12 col-xs-12" style="margin-top:20px;">
+					<%= link_to "Share Deck", '#', class: 'btn-warning btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#shareDeck" %>
 					<%= link_to "Delete Deck", '#', class: 'btn-danger btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %>
 					<%= link_to "Edit Deck", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
 					<%= link_to "Create New Card", '#', class: 'btn-success btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newCard" %>
@@ -75,11 +76,35 @@
   </div>
 </div>
 
+<!-- Share Deck Modal -->
+<div id="shareDeck" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Share deck</h4>
+      </div>
+      <div class="modal-body">
+		<p>Once you choose to share your deck, it cannot be stopped. Click share to continue.</p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Share", '#' , class: "btn btn-success pull-right" %>
+        <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Edit deck -->
 <% provide :modal_title, 'Edit title of deck' %>
 <% provide :modal_submit, "Edit" %>
 <%= render 'new_deck' %>
 
-
+<!-- Delete deck -->
 <% provide :delete_id, "deleteDeck" %>
 <% provide :delete_path, deck_path(@deck) %>
 <%= render 'shared/deletecontent' %>
