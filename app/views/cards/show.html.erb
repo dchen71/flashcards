@@ -11,7 +11,7 @@
 				<div class="btn-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
 					<h2 class="pull-left">Card(<%=@card.id%>/<%=@deck.cards.length%>) </h2>
 					<div class="btn-group pull-right" style="margin-top:20px;">
-						<%= link_to "Edit Card", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
+						<%= link_to "Edit Card", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#cardModal" %>
 						<%= link_to "Delete Card", '#', class: 'btn-danger btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %>
 					</div>
 
@@ -43,7 +43,13 @@
 	</div>
 </div>
 
+<!-- Edit Card Modal -->
+<% provide :cardPurpose,'Edit Card' %>
+<% provide :cardSubmit,'Edit'  %>
+<%= render 'shared/cardModal' %>
 
+
+<!-- Delete Card Modal -->
 <% provide :delete_id, "deleteCard" %>
 <% provide :delete_path, card_path(@card) %>
 <%= render 'shared/deletecontent' %>

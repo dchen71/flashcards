@@ -13,7 +13,7 @@
 					<%= link_to "Share Deck", '#', class: 'btn-warning btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#shareDeck" %>
 					<%= link_to "Delete Deck", '#', class: 'btn-danger btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %>
 					<%= link_to "Edit Deck", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
-					<%= link_to "Create New Card", '#', class: 'btn-success btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newCard" %>
+					<%= link_to "Create New Card", '#', class: 'btn-success btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#cardModal" %>
 				</div>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
@@ -44,37 +44,10 @@
 	</div>
 </div>
 
-
-<!-- New Card Modal -->
-<div id="newCard" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Create New Card</h4>
-      </div>
-      <div class="modal-body">
-		<%= form_for @card do |f| %>
-			<div class="form-group">
-				<%= f.label :Front %></p>
-				<%= f.text_area :front, rows:5, class:"form-control", placeholder: 'Front of the card', required:true %>
-			</div>
-			<div class="form-group">
-				<%= f.label :Back %></p>
-				<%= f.text_area :back, rows: 5,class:"form-control", placeholder: 'Back of the card', required:true %>
-			</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-        <%= f.submit "Create", class: "btn btn-success pull-right" %>
-      </div>
-		<% end %>
-    </div>
-
-  </div>
-</div>
+<!-- Create Card Modal -->
+<% provide :cardPurpose,'Create new Card' %>
+<% provide :cardSubmit,'Create Card'  %>
+<%= render 'shared/cardModal' %>
 
 <!-- Share Deck Modal -->
 <div id="shareDeck" class="modal fade" role="dialog">
