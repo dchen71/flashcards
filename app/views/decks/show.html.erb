@@ -6,10 +6,10 @@
 	</div>
 
 	<div class="row row-content">
-		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+		<div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
 			<div class="col-md-12 col-sm-12 col-xs-12">
-				<h2 class="col-md-9 col-sm-12 col-xs-12"><%= @deck.title %></h2>
-				<div class="btn-group col-md-3 col-sm-12 col-xs-12" style="margin-top:20px;">
+				<h2 class="col-md-8 col-sm-12 col-xs-12"><%= truncate(@deck.title, length: 30) %></h2>
+				<div class="btn-group col-md-4 col-sm-12 col-xs-12" style="margin-top:20px;">
 					<%= link_to "Edit Deck", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
 					<%= link_to "Create New Card", '#', class: 'btn-success btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newCard" %>
 				</div>
@@ -22,8 +22,8 @@
 						<% @cards.each do |f| %>
 							<% unless f.id.nil? %>
 							<div class="deck-content col-md-12 col-xs-12 col-sm-12">
-								<%= link_to f.front, card_path(f.id), class:'pull-left' %>
-								<div class="btn-group pull-right">
+								<%= link_to truncate(f.front, length: 35), card_path(f.id), class:'pull-left' %>
+								<div class="btn-group pull-right hidden-sm hidden-xs">
 									<%= link_to "Edit Card", edit_card_path(f.id), class: "btn btn-info btn-sm" %>
 									<%= link_to "Delete Card", card_path(f.id), method: :delete, class: "btn btn-danger btn-sm" %>
 								</div>
