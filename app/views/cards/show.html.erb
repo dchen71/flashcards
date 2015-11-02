@@ -42,12 +42,16 @@
 			  <%= link_to "Return", deck_path(@deck), class:"btn btn-default" %>
 			</footer>
 		</div>
+		<% unless @card.previous.nil? %>
 		<div class="arrowleft">
 			<span class="glyphicon glyphicon-arrow-left"></span>
 		</div>
+		<% end %>
+		<% unless @card.next.nil? %>
 		<div class="arrowright">
 			<span class="glyphicon glyphicon-arrow-right"></span>
 		</div>
+		<% end %>
 	</div>
 </div>
 
