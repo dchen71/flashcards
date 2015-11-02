@@ -2,7 +2,6 @@
 	<div class="row row-header">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<p style="padding-bottom:5%;"></p>
-
 		</div>
 	</div>
 
@@ -10,9 +9,12 @@
 		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="btn-group col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
-					<h2>Card </h2>
-					<%= link_to "Edit Card", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
-					<%= link_to "Delete Card", '#', class: 'btn-danger btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %>
+					<h2 class="pull-left">Card(<%=@card.id%>/<%=@deck.cards.length%>) </h2>
+					<div class="btn-group pull-right" style="margin-top:20px;">
+						<%= link_to "Edit Card", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
+						<%= link_to "Delete Card", '#', class: 'btn-danger btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %>
+					</div>
+
 				</div>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
