@@ -63,6 +63,13 @@ $navbar-active: blue;
 	border-bottom: 1px solid black;
 }
 
+/* Deck show */
+.deck-content{
+	a:not(.btn){
+		font-size: 1.4em;
+	}
+}
+
 
 /* Footer */
 $footer-background: #E0DCD5;

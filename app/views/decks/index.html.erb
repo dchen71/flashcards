@@ -22,7 +22,7 @@
 						</div>
 						<% @decks.each do |f| %>
 							<% unless f.id.nil? %>
-							<div class="deck-content col-md-12 col-xs-12 col-sm-12">
+							<div class="decks col-md-12 col-xs-12 col-sm-12">
 							<p style="padding-top:5px;"></p>
 							<%= link_to f.title, deck_path(f.id), class:'col-md-7 col-sm-2 col-xs-3' %>
 							<%= link_to f.cards.length, deck_path(f.id), class:"col-md-2 col-sm-2 col-xs-4" %>
