@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031022121) do
+ActiveRecord::Schema.define(version: 20151102004535) do
 
   create_table "decks", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "user_id"
+    t.datetime "last_seen_at", default: '2015-11-02 00:46:47'
   end
 
   add_index "decks", ["user_id"], name: "index_decks_on_user_id"
