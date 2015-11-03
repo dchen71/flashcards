@@ -4,6 +4,11 @@ User.create(username: 				'Example',
 			password: 			    'testtest',
 			password_confirmation:  'testtest'
 			)
+User.create(username: 				'Example 2',
+			email: 					'example2@test.com',
+			password: 			    'testtest',
+			password_confirmation:  'testtest'
+			)
 
 #Create decks
 (1..3).each do |i|
@@ -12,10 +17,17 @@ User.create(username: 				'Example',
 		     	)
 end
 
+Deck.create(title: "Example Shared Deck",
+			user_id: 2
+		     )
+
 
 #Create Cards
 (1..10).each do |i|
 	Card.create(front: "Example Front #{i}",
 				back:  "Example Back #{i + 1}",
 				deck_id: 1)
+	Card.create(front: "Example Front #{i}",
+				back:  "Example Back #{i + 1}",
+				deck_id: 2)
 end
