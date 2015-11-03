@@ -1,7 +1,6 @@
 class CardsController < ApplicationController
 	before_action :require_login
 
-
 	def new
 		@card = Deck.find(params[:id]).cards.build
 	end
@@ -36,8 +35,9 @@ class CardsController < ApplicationController
 
 	def destroy
 		@card = Card.find(params[:id])
+		@id = @card.deck_id
 		@card.destroy
-		redirect_to :back
+		redirect_to(deck_path(@id))
 	end
 
 	private
