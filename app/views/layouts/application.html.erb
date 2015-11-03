@@ -33,8 +33,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
         <li><%= link_to "Study", decks_path %></li>
-        <li><%= link_to "Shared Decks", share_path %></li>
-        <li><%= link_to "Profile", edit_user_registration_path %></li>
+        <li <% if current_page?(share_path) %> class="active" <% end %>><%= link_to "Shared Decks", share_path %></li>
+        <li <% if current_page?(edit_user_registration_path) %> class="active" <% end %>><%= link_to "Profile", edit_user_registration_path %></li>
         <li><%= link_to "Log Out", destroy_user_session_path , method: 'delete'%></li>
         <% end %>
         <% unless signed_in?%>
