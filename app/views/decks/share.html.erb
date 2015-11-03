@@ -15,20 +15,19 @@
 				<% if @decks.length != 0 %>
 					<div class="col-md-12 col-sm-12 col-sm-12">
 						<div class="deck-header col-md-12 col-xs-12 col-sm-12">
-							<p class="col-md-7 col-sm-2 col-xs-3"><strong>Name</strong></p>
+							<p class="col-md-4 col-sm-2 col-xs-3"><strong>Name</strong></p>
 							<p class="col-md-2 col-sm-2 col-xs-4 text-center"><strong># Cards</strong></p>
-							<p class="col-md-2 col-sm-2 col-xs-4 text-center"><strong>Last updated</strong></p>
+							<p class="col-md-3 col-sm-2 col-xs-4 text-center"><strong>Last updated</strong></p>
 							<p class="col-md-3 col-sm-8 col-xs-5"><strong>Creator</strong></p>
 						</div>
 						<% @decks.each do |f| %>
 							<% unless f.id.nil? %>
 							<div class="decks col-md-12 col-xs-12 col-sm-12">
 								<p style="padding-top:5px;"></p>
-								<%= link_to truncate(f.title, length: 70), deck_path(f.id), class:'col-md-7 col-sm-2 col-xs-3' %>
-								<%= link_to f.cards.length, deck_path(f.id), class:"col-md-2 col-sm-2 col-xs-4 text-center" %>
-								<p><%= f.cards.length %></p>
-								<p><%= f.updated_at.strftime("%m/%d/%Y, %I:%M %Z") %></p>
-								<p><%= User.find(f.user_id).username %></p>
+								<%= link_to truncate(f.title, length: 50), deck_path(f.id), class:'col-md-4 col-sm-2 col-xs-3' %>
+								<p class="col-md-2 col-sm-2 col-xs-4 text-center"><%= f.cards.length %></p>
+								<p class="col-md-3 col-sm-2 col-xs-4 text-center"><%= f.updated_at.strftime("%m/%d/%Y, %I:%M %Z") %></p>
+								<p class="col-md-3 col-sm-8 col-xs-5"><%= truncate(User.find(f.user_id).username,length:30) %></p>
 							</div>
 							<% end %>
 						<% end %>
