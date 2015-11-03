@@ -20,7 +20,6 @@ class DecksController < ApplicationController
 			flash[:error] = "Error creating deck"
 			redirect_to decks_path
 		end
-
 	end
 
 	def share
@@ -31,6 +30,12 @@ class DecksController < ApplicationController
 		@deck = Deck.find(params[:id])
 		@cards = @deck.cards
 		@card = Deck.find(params[:id]).cards.build()
+	end
+
+	def edit
+		@deck = Deck.find(params[:id])
+		@deck.update(deck_params)
+		redirect_to :back
 	end
 
 	def update
@@ -49,7 +54,7 @@ class DecksController < ApplicationController
 	private
 
 	def deck_params
-		params.require(:deck).permit(:title)
+		params.require(:deck).permit(:title, :share)
 	end
 
 	#Updates the last visited
