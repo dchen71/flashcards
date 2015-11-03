@@ -36,13 +36,13 @@ class DecksController < ApplicationController
 	def edit
 		@deck = Deck.find(params[:id])
 		@deck.update(deck_params)
-		redirect_to :back
+		redirect_to decks_path
 	end
 
 	def update
 		@deck = Deck.find(params[:id])
 		@deck.update(deck_params)
-		redirect_to :back
+		redirect_to decks_path
 	end
 
 	def destroy
