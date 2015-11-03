@@ -1,6 +1,7 @@
 class DecksController < ApplicationController
 	before_action :require_login
 	before_action :last_visited, only: [:show]
+	before_action :correct_user, only: [:show]
 
 	def new
 		@deck = current_user.decks.build
@@ -60,6 +61,13 @@ class DecksController < ApplicationController
 	#Updates the last visited
 	def last_visited
 	  Deck.find(params[:id]).update_attribute(:last_visited, DateTime.now)
+	end
+
+	def correct_user
+		unless current_user.id == Deck.find(params[:id]).user_id or Deck.find(params[:id]).share == true
+			flash[:error] = "You do not have permission to look at this deck"
+			redirect_to root_path
+		end
 	end
 end
 
