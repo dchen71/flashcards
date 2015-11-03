@@ -23,6 +23,10 @@ class DecksController < ApplicationController
 
 	end
 
+	def share
+		@decks = Deck.where(share: true)
+	end
+
 	def show
 		@deck = Deck.find(params[:id])
 		@cards = @deck.cards

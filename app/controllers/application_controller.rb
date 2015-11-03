@@ -5,6 +5,20 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
+  #Requires login
+  def require_login
+  	unless signed_in?
+  		flash[:error] = "Please login to view content"
+  		redirect_to root_path
+  	end
+  end
+
+  #Devise override to redirect after signing in
+  def after_sign_in_path_for(resource)
+    decks_path
+  end
+
+  #Devise permit username variable
   protected
 
   def configure_devise_permitted_parameters
@@ -21,16 +35,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  #Requires login
-  def require_login
-  	unless signed_in?
-  		flash[:error] = "Please login to view content"
-  		redirect_to root_path
-  	end
-  end
-
-  #Devise override to redirect after signing in
-  def after_sign_in_path_for(resource)
-    decks_path
-  end
 end

@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row row-header">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<p style="padding-bottom:5%;"></p>
+		</div>
+	</div>
+
+	<div class="row row-content">
+		<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<h2 class="pull-left">Shared Decks</h2>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<hr>
+				<% if @decks.length != 0 %>
+					<div class="col-md-12 col-sm-12 col-sm-12">
+						<div class="deck-header col-md-12 col-xs-12 col-sm-12">
+							<p class="col-md-7 col-sm-2 col-xs-3"><strong>Name</strong></p>
+							<p class="col-md-2 col-sm-2 col-xs-4 text-center"><strong># Cards</strong></p>
+							<p class="col-md-3 col-sm-8 col-xs-5"><strong>Creator</strong></p>
+						</div>
+						<% @decks.each do |f| %>
+							<% unless f.id.nil? %>
+							<div class="decks col-md-12 col-xs-12 col-sm-12">
+							<p style="padding-top:5px;"></p>
+							<%= link_to truncate(f.title, length: 70), deck_path(f.id), class:'col-md-7 col-sm-2 col-xs-3' %>
+							<%= link_to f.cards.length, deck_path(f.id), class:"col-md-2 col-sm-2 col-xs-4 text-center" %>
+							<%= link_to f.last_visited.strftime("%m/%d/%Y, %I:%M %Z"), deck_path(f.id), class: 'col-md-3 col-sm-8 col-xs-5' %>
+							</div>
+							<% end %>
+						<% end %>
+					</div>
+				<% else %>
+					<p>No decks are being shared right now</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
