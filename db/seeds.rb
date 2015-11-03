@@ -18,7 +18,8 @@ User.create(username: 				'Example 2',
 end
 
 Deck.create(title: "Example Shared Deck",
-			user_id: 2
+			user_id: 2,
+			share: true
 		     )
 
 
