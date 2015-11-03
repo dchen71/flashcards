@@ -63,6 +63,7 @@ class DecksController < ApplicationController
 	  Deck.find(params[:id]).update_attribute(:last_visited, DateTime.now)
 	end
 
+	#Checks if the owner of the deck is visiting or it is shared
 	def correct_user
 		unless current_user.id == Deck.find(params[:id]).user_id or Deck.find(params[:id]).share == true
 			flash[:error] = "You do not have permission to look at this deck"

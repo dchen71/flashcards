@@ -39,5 +39,26 @@
 	</div>
 </div>
 
-<%= javascript_include_tag 'gmaps' %>
-<%= javascript_include_tag 'contact_map' %>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["maps_api_key"] %>&callback=initialize">
+</script>
+<script type="text/javascript">
+	  //Creates map and marker
+	  function initialize() {
+	    var hq = new google.maps.LatLng(37.789180,-122.390029);
+	    var mapProp = {
+	      center:hq,
+	      zoom:17,
+	      mapTypeId:google.maps.MapTypeId.ROADMAP
+	    };
+	    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	    
+	    //Adds marker for location
+	    var marker = new google.maps.Marker({
+	      position:hq,
+	      });
+	    marker.setMap(map);
+	  }
+
+	  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
