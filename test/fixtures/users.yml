@@ -7,11 +7,9 @@
 user1: 
   username: legionaire
   email: example@test.com
-  password: testtest
-  password_confirmation: testtest
+  encrypted_password: testtest
 
 user2:
   username: aries
   email: user@test.com
-  password: testtest
-  password_confirmation: testtest
+  encrypted_password: testtest
