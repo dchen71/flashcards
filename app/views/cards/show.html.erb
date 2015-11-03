@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<footer class="text-center">
-			  <%= link_to "Return", deck_path(@deck), class:"btn btn-default" %>
+			  <%= link_to "Return", deck_path(@card.deck_id), class:"btn btn-default" %>
 			</footer>
 		</div>
 		<% unless @card.previous.nil? %>
