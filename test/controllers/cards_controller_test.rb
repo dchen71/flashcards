@@ -5,16 +5,15 @@ class CardsControllerTest < ActionController::TestCase
   	@user = users(:user1)
   	@deck = decks(:deck1)
   	@card = cards(:card1)
-  	@request.env['HTTP_REFERER'] = 'http://test.com/sessions/new'
   end
 
   #Testing controller functionality
   test "should get able to create" do
   	sign_in @user
   	assert_difference('Card.count') do
-  	  post :create, card: {front:'dog',back:'dog', deck_id: @deck.id}
+  	  post(:create, {id: @deck.id, card: {front:'dog',back:'dog'}})
   	end
-  	assert_response :success
+  	assert_redirected_to deck_path(@deck.id)
   end
 
   test "should get show" do
@@ -25,21 +24,22 @@ class CardsControllerTest < ActionController::TestCase
 
   test "should edit" do
   	sign_in @user
-  	patch(:edit, {id: @card.id, front:'cat'}, card: {front:'cat'})
-  	assert_response :success
+  	patch(:edit, {id: @card.id, card: {front:'cat'}})
+  	assert_equal "Card successfully edited", flash[:success]
+  	assert_redirected_to deck_path(@card.deck_id)
   end
 
   test "should destroy" do
   	sign_in @user
   	assert_difference('Card.count', -1) do
-  	  delete :destroy, {id: @card.id}
+  	  delete(:destroy, {id: @card.id})
   	end
   	assert_redirected_to deck_path(@card.deck_id)
   end
 
   #Testing required login functionality
   test "should redirect from create if not logged in" do
-  	post(:create, card: {front:'dog',back:'dog', deck_id: @deck.id})
+  	post(:create, {id:@deck.id, card: {front:'dog',back:'dog'}})
   	assert_redirected_to root_path
   end
 
@@ -49,7 +49,7 @@ class CardsControllerTest < ActionController::TestCase
   end
 
   test "should redirect from edit if not logged in" do
-  	patch :edit, @card.id
+  	patch(:edit, {id:@card.id})
   	assert_redirected_to root_path
   end
 
