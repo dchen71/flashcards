@@ -4,8 +4,22 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+card1: 
+  front: Test1
+  back: Test2
+  decK_id: deck1
+
+card2: 
+  front: Test1
+  back: Test2
+  decK_id: deck1
+
+card3: 
+  front: Test1
+  back: Test2
+  decK_id: deck2
+
+card4: 
+  front: Test1
+  back: Test2
+  decK_id: deck2
