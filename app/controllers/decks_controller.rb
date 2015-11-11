@@ -2,6 +2,7 @@ class DecksController < ApplicationController
 	before_action :require_login
 	before_action :last_visited, only: [:show]
 	before_action :correct_user, only: [:show]
+	before_action :creator?, only: [:edit, :delete]
 
 	def new
 		@deck = current_user.decks.build
@@ -70,5 +71,14 @@ class DecksController < ApplicationController
 			redirect_to root_path
 		end
 	end
+
+	#Checks if the current user is the creator of the deck
+	def creator?
+		unless current_user.id == Deck.find(params[:id]).user_id
+			flash[:error] =  "You do not have permission to modify this deck"
+			redirect_to root_path
+		end
+	end
+	
 end
 

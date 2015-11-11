@@ -17,10 +17,14 @@
 					<% if @deck.share == false %>
 					<%= link_to "Share Deck", '#', class: 'btn-warning btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#shareDeck" %>
 					<% else %>
+					<% if deck_creator? %>
 					<%= link_to '#', class: 'btn-success btn btn-sm disabled' do %><span class="glyphicon glyphicon-check"></span>Already sharing<% end %>
 					<% end %>
+					<% end %>
+					<% if deck_creator? %>
 					<%= link_to "Delete Deck", '#', class: 'btn-danger btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#deleteDeck" %>
 					<%= link_to "Edit Deck", '#', class: 'btn-info btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#newDeck" %>
+					<% end %>
 					<%= link_to "Create New Card", '#', class: 'btn-success btn btn-sm', type:"button", 'data-toggle' => "modal", 'data-target' => "#cardModal" %>
 				</div>
 				<div class="dropdown visible-xs visible-sm col-sm-12 col-xs-12">
